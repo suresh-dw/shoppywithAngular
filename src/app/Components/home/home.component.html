@@ -1,0 +1,50 @@
+<div
+  class="grid md:grid-cols-2 sm:grid-cols-1 gap-x-4 items-center px-6 w-full h-[50vh] bg-green-500 rounded-md"
+>
+  <div class="flex flex-col justify-center h-full">
+    <h1 class="text-3xl text-white font-bold pb-4">Welocome to Shoppy App</h1>
+    <p class="text-white font-semibold">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas eos,
+      laboriosam sint, neque est ex commodi voluptatem natus tenetur veniam
+      beatae! Reprehenderit quisquam sint ipsa vero quo voluptatibus optio
+      illum!
+    </p>
+  </div>
+  <div class="h-full px-10 py-4 flex items-center justify-end">
+    <img
+      src="https://img.freepik.com/premium-vector/application-online-shopping-female-character-is-shopping-woman-chooses-clothes-internet-payment-purchases-from-e-wallet-electronic-commerce-benefits_776652-2224.jpg"
+      alt="Shopping App image"
+      class="rounded-md h-[25rem]"
+    />
+  </div>
+</div>
+
+<div class="grid gap-x-4 md:grid-cols-4 sm:grid-cols-2 center row-auto gap-y-6">
+  <div
+    *ngFor="let product of productData"
+    class="my-8 flex flex-col shadow-md px-2 py-1 rounded-md"
+  >
+    <img [src]="product.image" alt="" class="h-[15rem] place-self-center" />
+    <div class="mx-4">
+      <h1 class="font-bold text-xl text-green-600">
+        {{ product.title | slice : 0 : 20 }}...
+      </h1>
+      <h1 class="font-semibold text-sm text-green-400">
+        {{ product.description | titlecase | slice : 0 : 50 }}...
+      </h1>
+    </div>
+    <div class="flex flex-wrap justify-between my-2">
+      <h3 class="mx-4 text-green-600 font-bold">
+        Price : {{ product.price | currency : "₹" }}
+        <span class="line-through text-green-300 font-medium text-sm ml-1">{{
+          product.price * 2
+        }}</span>
+      </h3>
+      <button
+        class="text-sm font-bold text-white bg-green-600 px-2 py-1 rounded-md"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

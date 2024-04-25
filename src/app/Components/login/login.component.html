@@ -1,0 +1,30 @@
+<div class="flex w-full justify-center mt-36 h-full">
+  <form
+    class="flex flex-col gap-y-4 w-[35rem] h-fit shadow-md rounded-md px-2 py-10"
+    [formGroup]="login"
+    (ngSubmit)="onLogin()"
+  >
+    <h1 class="text-green-600 text-2xl font-bold">Login to Shoppy</h1>
+    <input
+      type="text"
+      placeholder="Enter Your Username"
+      class="my-2 outline-none border-[1px] rounded-md placeholder:px-2 placeholder:py-2 p-2 font-semibold border-green-400"
+      formControlName="username"
+    />
+    <input
+      type="text"
+      placeholder="Enter Your Password"
+      class="my-2 outline-none border-[1px] rounded-md placeholder:px-2 placeholder:py-2 p-2 font-semibold border-green-400"
+      formControlName="password"
+    />
+    <div class="flex justify-between text-blue-600">
+      <a><small>Don't have an Account? Register</small></a>
+      <a><small>Forgot Password</small></a>
+    </div>
+    <button
+      class="bg-green-600 px-2 py-2 rounded-md text-white font-semibold mt-2"
+    >
+      Login
+    </button>
+  </form>
+</div>
