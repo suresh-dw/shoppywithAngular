@@ -8,15 +8,10 @@ import { UserSchema } from './UserSchema';
   providedIn: 'root',
 })
 export class ProductsDataService {
+  public cartData: ProductSchema[] = [];
   constructor(private http: HttpClient) {}
   getProducts(): Observable<ProductSchema[]> {
     return this.http.get<ProductSchema[]>('https://fakestoreapi.com/products');
-  }
-
-  getCart(): Observable<ProductSchema[]> {
-    return this.http.get<ProductSchema[]>(
-      `https://fakestoreapi.com/carts?userId=${1}`
-    );
   }
 
   login(data: UserSchema): Observable<any> {
@@ -31,4 +26,11 @@ export class ProductsDataService {
   setToken(token: string) {
     localStorage.setItem('token', JSON.stringify(token));
   }
+
+  addToCart(product: ProductSchema) {
+    this.cartData.push(product);
+    console.log(this.cartData);
+  }
+
+  deleteFromCart(product: ProductSchema) {}
 }

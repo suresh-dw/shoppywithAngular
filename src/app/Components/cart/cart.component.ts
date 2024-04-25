@@ -14,9 +14,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     let token = localStorage.getItem('token');
     if (token) {
-      this.cart.getCart().subscribe((data) => {
-        console.log(data);
-      });
     } else {
       this.router.navigate(['']);
     }

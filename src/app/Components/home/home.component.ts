@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['']);
     }
   }
+
+  addItemToCart(item: ProductSchema): void {
+    this.productService.addToCart(item);
+  }
 }
